@@ -1,4 +1,3 @@
-import { Profile } from "../models/profile.js"
 import { Task } from "../models/task.js"
 import { GoalList } from "../models/goalList.js"
 
@@ -21,8 +20,8 @@ const create = async (req, res) => {
 const index = async (req, res) => {
   try {
     const tasks = await Task.find({})
-      .populate('owner')
-      .sort({ createdAt: 'desc' })
+    .populate('owner')
+    .sort({ createdAt: 'desc' })
     res.status(200).json(tasks)
   } catch (error) {
     res.status(500).json(error)
@@ -32,7 +31,7 @@ const index = async (req, res) => {
 const show = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id)
-      .populate('owner')
+    .populate('owner')
     res.status(200).json(task)
   } catch (error) {
     res.status(500).json(error)

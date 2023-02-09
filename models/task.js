@@ -9,7 +9,6 @@ const stepSchema = new Schema({
   },
 })
 
-
 const taskSchema = new Schema(
   {
     note: {
@@ -29,6 +28,5 @@ const taskSchema = new Schema(
 )
 
 const Task = mongoose.model("Task", taskSchema)
-
 
 export { Task }

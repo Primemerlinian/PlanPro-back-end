@@ -21,8 +21,8 @@ const create = async (req, res) => {
 const index = async (req, res) => {
   try {
     const goalList = await GoalList.find({})
-      .populate('owner')
-      .sort({ createdAt: 'desc' })
+    .populate('owner')
+    .sort({ createdAt: 'desc' })
     res.status(200).json(goalList)
   } catch (err) {
     res.status(500).json(err)
@@ -40,9 +40,11 @@ const show = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const goalList = await GoalList.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    }).populate('owner')
+    const goalList = await GoalList.findByIdAndUpdate(
+      req.params.id, 
+      req.body, 
+      { new: true }
+    ).populate('owner')
     res.status(200).json(goalList)
   } catch (err) {
     res.status(500).json(err)
