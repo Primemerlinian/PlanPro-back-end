@@ -2,7 +2,6 @@ import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
 
-
 const goalListSchema = new Schema({
   title: {
     type: String,
@@ -13,7 +12,6 @@ const goalListSchema = new Schema({
 }, {
   timestamps: true,
 })
-
 
 const GoalList = mongoose.model('GoalList', goalListSchema)
 
