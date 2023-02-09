@@ -32,19 +32,6 @@ const show = async (req, res) => {
   }
 }
 
-const update = async (req, res) => {
-  try {
-    const quote = await Quote.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    ).populate('quote')
-    res.status(200).json(quote)
-  } catch (error) {
-    res.status(500).json(error)
-  }
-}
-
 const deleteQuote = async (req, res) => {
   try {
     const quote = await Quote.findByIdAndDelete(req.params.id)
@@ -58,7 +45,6 @@ export {
   createQuote,
   index,
   show,
-  update,
   deleteQuote as delete,
 }
 
