@@ -6,5 +6,7 @@ const router = Router ()
 
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, quoteCtrl.createQuote) 
-
+router.get('/', checkAuth, quoteCtrl.index)
+router.get('/:id', checkAuth, quoteCtrl.show)
+router.delete('/:id', checkAuth, quoteCtrl.delete)
 export { router }

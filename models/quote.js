@@ -6,12 +6,13 @@ const Schema = mongoose.Schema
 const quoteSchema = new Schema({
   quote: {
     type: String,
+    required: true,
   }
 }, {  
   timestamps: true,
 })
 
 
-const Quotes = mongoose.model('Quote', quoteSchema)
+const Quote = mongoose.model('Quote', quoteSchema)
 
-export { Quotes }
+export { Quote }
