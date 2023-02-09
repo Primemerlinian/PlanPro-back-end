@@ -6,7 +6,8 @@ const quoteSchema = new Schema({
   quote: {
     type: String,
     required: true,
-  }
+  },
+  author: { type: Schema.Types.ObjectId, ref: 'Profile' }
 }, {  
   timestamps: true,
 })
