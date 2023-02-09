@@ -8,5 +8,6 @@ router.use(decodeUserFromToken)
 router.post('/', checkAuth, quoteCtrl.createQuote) 
 router.get('/', checkAuth, quoteCtrl.index)
 router.get('/:id', checkAuth, quoteCtrl.show)
+router.put('/:id', checkAuth, quoteCtrl.update)
 
 export { router }
