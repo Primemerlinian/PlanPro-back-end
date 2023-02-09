@@ -9,5 +9,5 @@ router.post('/', checkAuth, quoteCtrl.createQuote)
 router.get('/', checkAuth, quoteCtrl.index)
 router.get('/:id', checkAuth, quoteCtrl.show)
 router.put('/:id', checkAuth, quoteCtrl.update)
-
+router.delete('/:id', checkAuth, quoteCtrl.delete)
 export { router }
