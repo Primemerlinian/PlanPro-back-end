@@ -14,8 +14,8 @@ const createQuote = async (req, res) => {
 const index = async (req, res) => {
   try {
     const quotes = await Quote.find({})
-      .populate('quote')
-      .sort({ createdAt: 'desc' })
+    .populate('quote')
+    .sort({ createdAt: 'desc' })
     res.status(200).json(quotes)
   } catch (error) {
     res.status(500).json(error)
@@ -25,7 +25,7 @@ const index = async (req, res) => {
 const show = async (req, res) => {
   try {
     const quote = await Quote.findById(req.params.id)
-      .populate('quote')
+    .populate('quote')
     res.status(200).json(quote)
   } catch (error) {
     res.status(500).json(error)
