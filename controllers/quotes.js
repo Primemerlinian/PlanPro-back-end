@@ -2,8 +2,8 @@ import { Quote } from "../models/quote.js";
 
 const createQuote = async (req, res) => {
   try {
+    req.body.author = req.user.profile;
     const quote = await Quote.create(req.body);
-    console.log('hi',quote);
     res.status(201).json(quote);
   } catch (error) {
     console.log(error);
@@ -14,39 +14,33 @@ const createQuote = async (req, res) => {
 const index = async (req, res) => {
   try {
     const quotes = await Quote.find({})
-      .populate('quote')
-      .sort({ createdAt: 'desc' })
-    res.status(200).json(quotes)
+      // .populate('quote')
+      // .populate("author")
+      .sort({ createdAt: "desc" });
+    res.status(200).json(quotes);
   } catch (error) {
-    res.status(500).json(error)
+    res.status(500).json(error);
   }
-}
+};
 
 const show = async (req, res) => {
   try {
     const quote = await Quote.findById(req.params.id)
-      .populate('quote')
-    res.status(200).json(quote)
+      // .populate('quote')
+      // .populate("author");
+    res.status(200).json(quote);
   } catch (error) {
-    res.status(500).json(error)
+    res.status(500).json(error);
   }
-}
+};
 
 const deleteQuote = async (req, res) => {
   try {
-    const quote = await Quote.findByIdAndDelete(req.params.id)
-    res.status(200).json(quote)
+    const quote = await Quote.findByIdAndDelete(req.params.id);
+    res.status(200).json(quote);
   } catch (error) {
-    res.status(500).json(error)
+    res.status(500).json(error);
   }
-}
+};
 
-export {
-  createQuote,
-  index,
-  show,
-  deleteQuote as delete,
-}
-
-
-
+export { createQuote, index, show, deleteQuote as delete };
