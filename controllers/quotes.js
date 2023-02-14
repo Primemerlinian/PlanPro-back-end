@@ -1,21 +1,19 @@
-import { Quote } from "../models/quote.js";
+import { Quote } from "../models/quote.js"
 
 const createQuote = async (req, res) => {
   try {
-    const quote = await Quote.create(req.body);
-    console.log('hi',quote);
-    res.status(201).json(quote);
+    const quote = await Quote.create(req.body)
+    res.status(201).json(quote)
   } catch (error) {
-    console.log(error);
-    res.status(500).json(error);
+    console.log(error)
+    res.status(500).json(error)
   }
-};
+}
 
 const index = async (req, res) => {
   try {
     const quotes = await Quote.find({})
-      .populate('quote')
-      .sort({ createdAt: 'desc' })
+    .sort({ createdAt: 'desc' })
     res.status(200).json(quotes)
   } catch (error) {
     res.status(500).json(error)
@@ -25,7 +23,6 @@ const index = async (req, res) => {
 const show = async (req, res) => {
   try {
     const quote = await Quote.findById(req.params.id)
-      .populate('quote')
     res.status(200).json(quote)
   } catch (error) {
     res.status(500).json(error)
@@ -45,5 +42,5 @@ export {
   createQuote,
   index,
   show,
-  deleteQuote as delete,
+  deleteQuote as delete
 }

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as taskCtrl from '../controllers/tasks.js'
-import { decodeUserFromToken, checkAuth } from "../middleware/auth.js";
+import { decodeUserFromToken, checkAuth } from "../middleware/auth.js"
 
 const router = Router ()
 
