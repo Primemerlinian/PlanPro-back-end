@@ -11,9 +11,9 @@ import './config/database.js'
 // import routes
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
-import { router as taskRouter } from './routes/task.js'
-import { router as goalListsRouter } from './routes/goalList.js'
-import { router as quoteRouter } from './routes/quote.js'
+import { router as taskRouter } from './routes/tasks.js'
+import { router as goalListsRouter } from './routes/goalLists.js'
+import { router as quoteRouter } from './routes/quotes.js'
 
 // create the express app
 const app = express()
