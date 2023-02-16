@@ -1,12 +1,13 @@
 import { Router } from "express"
-import * as quoteCtrl from "../controllers/quotes.js"
+import * as quotesCtrl from "../controllers/quotes.js"
 import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 
 const router = Router ()
 
 router.use(decodeUserFromToken)
-router.post('/', checkAuth, quoteCtrl.createQuote) 
-router.get('/', checkAuth, quoteCtrl.index)
-router.get('/:id', checkAuth, quoteCtrl.show)
-router.delete('/:id', checkAuth, quoteCtrl.delete)
+router.post('/', checkAuth, quotesCtrl.createQuote) 
+router.get('/', checkAuth, quotesCtrl.index)
+router.get('/:id', checkAuth, quotesCtrl.show)
+router.delete('/:id', checkAuth, quotesCtrl.delete)
+
 export { router }
