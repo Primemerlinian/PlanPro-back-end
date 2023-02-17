@@ -1,5 +1,5 @@
-import { Profile } from "../models/profile.js";
-import { GoalList } from "../models/goalList.js";
+import { Profile } from "../models/profile.js"
+import { GoalList } from "../models/goalList.js"
 
 const create = async (req, res) => {
   try {

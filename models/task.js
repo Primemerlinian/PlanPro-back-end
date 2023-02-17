@@ -15,9 +15,9 @@ const taskSchema = new Schema(
       type: String,
       required: true,
     },
-    taskName: "string",
+    taskName: String,
     date: Date,
-    time: "string",
+    time: String,
     steps: [stepSchema],
     owner: { type: Schema.Types.ObjectId, ref: 'Profile' },
     isComplete: { 
